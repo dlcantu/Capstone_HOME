@@ -19,10 +19,11 @@
     <nav class="navbar bg-light">
       <div class="container-fluid">
         <a class="navbar-brand">HOME</a>
-        <a class="nav-link active" aria-current="page" href="#"
+        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Homepage</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'deadlines' %}"
           >Goals and Deadlines</a
         >
-        <a class="nav-link active" aria-current="page" href="#"
+        <a class="nav-link active" aria-current="page" href="{% url 'newclient' %}"
           >Add New Client</a
         >
         <form class="d-flex" role="search">
