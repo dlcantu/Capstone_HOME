@@ -6,4 +6,9 @@ def home(request):
 def login(request):
     return render(request, 'registration/login.html')
 
-# Create your views here.
+def deadlines(request):
+    return render(request, 'deadlines.html')
+
+def newclient(request):
+    return render(request, 'newclient.html')
+
