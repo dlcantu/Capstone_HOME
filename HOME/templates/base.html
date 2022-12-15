@@ -14,7 +14,31 @@
     />
     <title>Capstone</title>
   </head>
+  <!-- javascript and css goes here -->
   <body>
+    <nav class="navbar bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand">HOME</a>
+        <a class="nav-link active" aria-current="page" href="#"
+          >Goals and Deadlines</a
+        >
+        <a class="nav-link active" aria-current="page" href="#"
+          >Add New Client</a
+        >
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search for Client"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"
+          >Log Out</a
+        >
+      </div>
+    </nav>
     {% block content %} {% endblock %}
     <script src="{% static 'app.js' %}"></script>
     <script
