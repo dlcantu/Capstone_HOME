@@ -1,17 +1,7 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Home</h1>
+<h1>Homepage</h1>
 {% if user.is_authenticated %}
-    Hi {{user.username }}!
-    <p><a href="{% url 'logout' %}">Log Out</a></p>
-    <nav class="nav flex-column">
-        <a class="nav-link active" aria-current="page" href="#">Goals and Deadlines</a>
-        <a class="nav-link active" aria-current="page" href="#">Add New Client</a>
-        <a class="container-fluid">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search for Client" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-    </nav>
+    Hi {{user.username }}! Welcome to the Homeless Outreach Managing Enagement system.
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a>
