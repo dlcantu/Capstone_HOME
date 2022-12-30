@@ -1,4 +1,20 @@
-{% extends 'base.html' %} {% block content %} {% load static 'newclient.js' %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 <h1>Add New Client</h1>
-<form></form>
+<form action="{% url 'newclient' %}" method="POST">
+{% csrf_token %}
+  <label for="firstName" class="form-label">Enter first name:</label>
+  <input type="text" name="firstname" id="firstName" /><br />
+
+  <label for="lastName" class="form-label">Enter last name:</label>
+  <input type="text" name="lastname" id="lastName" /><br />
+
+  <label for="dateOfBirth" class="form-label">Enter date of birth:</label>
+  <input type="date" name="dob" id="dateOfBirth" /><br />
+
+  <label for="clientNotes" class="form-label">Enter client notes below:</label
+  ><br />
+  <textarea name="clientnotes" id="clientNotes" cols="30" rows="10"></textarea><br />
+  
+  <button type="submit">Add Client</button>
+</form>
 {% endblock %}

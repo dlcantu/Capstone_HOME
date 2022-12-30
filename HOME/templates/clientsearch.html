@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %} (% load static %)
+<h1>List of Clients</h1>
+{% for post in clients %}
+<p> First name: {{post.firstName}} </p>
+<p> Last name: {{post.lastName}}</p>
+<p> Date of Birth: {{post.dateOfBirth}}</p>
+<p> Client Notes: {{post.clientNotes}}</p><br><br>
+{% endfor %}
+{% endblock %}
