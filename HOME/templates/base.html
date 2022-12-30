@@ -20,24 +20,29 @@
       <div class="container-fluid">
         <a class="navbar-brand">HOME</a>
         <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Homepage</a>
-        <a class="nav-link active" aria-current="page" href="{% url 'deadlines' %}"
-          >Goals and Deadlines</a
-        >
+        
+        <form class="d-flex" role="search" action="{% url 'clientsearch' %}" method="POST">
+          {% csrf_token %}
+          <input
+            class="form-control me-2"
+            type="text"
+            name="firstName"
+            placeholder="Search for Client"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
         <a class="nav-link active" aria-current="page" href="{% url 'client' %}"
           >Client List</a
         >
         <a class="nav-link active" aria-current="page" href="{% url 'newclient' %}"
           >Add New Client</a
         >
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search for Client"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <a class="nav-link active" aria-current="page" href="{% url 'deadlines' %}"
+          >Add a Goal</a
+        >
+
         <a class="nav-link-active" aria-current="page" href="{% url 'logout' %}"
           >Logout</a>
       </div>

@@ -7,4 +7,5 @@ urlpatterns = [
     path('deadlines/', views.deadlines, name = 'deadlines'),
     path('client/', views.clientlist, name = 'client'),
     path('newclient/', views.add_newclient, name = 'newclient'),
+    path('clientsearch/', views.client_search, name = 'clientsearch')
 ]

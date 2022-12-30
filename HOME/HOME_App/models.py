@@ -16,4 +16,4 @@ class Goals(models.Model):
     goalNotes = models.TextField(max_length=500)
 
     def __str__(self):
-        return self.selectClient, self.dateCreated
+        return f"{self.selectClient}, {self.dateCreated}"

@@ -1,12 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
-<h1>Deadlines</h1>
-<!-- 
-Select client from a drop down list 
-Add a date created
-Add a deadline/goal date
-Add a summary of deadline/goal
--->
-
+<h1>Goals and Deadlines</h1>
+Select a client from the list to add a goal for their case: 
 <form action="{% url 'deadlines' %}" method="POST">
 {% csrf_token %}
   <label for="selectClient">Select a client:</label>
