@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <h1>List of Clients</h1>
+Current clients in system:
 {% for post in clients %}
 <p> First name: {{post.firstName}} </p>
 <p> Last name: {{post.lastName}}</p>

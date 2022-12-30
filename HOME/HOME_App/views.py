@@ -40,3 +40,14 @@ def add_newclient(request):
     else:
         return render(request, 'newclient.html') #render html
 
+def client_search(request):
+    if request.method == "POST":
+        query_name = request.POST.get('firstName', None)
+        if query_name:
+            client_info = Client.objects.filter(firstName__contains=query_name)
+            current_client = Client.objects.get(firstName=query_name)
+            client_goal = Goals.objects.filter(selectClient=current_client)
+            return render(request, "clientsearch.html", {"client_info":client_info, "client_goal":client_goal})
+    return render(request, "clientsearch.html")
+
+    

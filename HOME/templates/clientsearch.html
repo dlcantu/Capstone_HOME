@@ -1,9 +1,16 @@
-{% extends 'base.html' %} {% block content %} (% load static %)
-<h1>List of Clients</h1>
-{% for post in clients %}
-<p> First name: {{post.firstName}} </p>
-<p> Last name: {{post.lastName}}</p>
-<p> Date of Birth: {{post.dateOfBirth}}</p>
-<p> Client Notes: {{post.clientNotes}}</p><br><br>
+{% extends 'base.html' %} {% block content %} {% load static %}
+<h1>Client Search</h1>
+
+{% for client in client_info %}
+<p> Current case notes and goals for {{client.firstName}} {{client.lastName}}: </p>
+<br>
+<p> Notes: {{client.clientNotes}}</p>
+<br>
+
+{% endfor %}
+{% for x in client_goal %} <!-- Loop through goals to display  -->
+<p> Goal: {{x.goalNotes}} </p>
+<p> Deadline: {{x.goalEndDate}} </p>
+<br><br>
 {% endfor %}
 {% endblock %}
