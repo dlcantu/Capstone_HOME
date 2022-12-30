@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.login, name = 'login'),
     path('homepage/', views.home, name = 'homepage'),
     path('deadlines/', views.deadlines, name = 'deadlines'),
-    path('newclient/', views.newclient, name = 'newclient')
+    path('client/', views.clientlist, name = 'client'),
+    path('newclient/', views.add_newclient, name = 'newclient'),
 ]
