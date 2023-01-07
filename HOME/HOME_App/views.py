@@ -46,8 +46,23 @@ def client_search(request):
         if query_name:
             client_info = Client.objects.filter(firstName__contains=query_name)
             current_client = Client.objects.get(firstName=query_name)
-            client_goal = Goals.objects.filter(selectClient=current_client)
+            client_goal = Goals.objects.filter(selectClient=current_client) #list of all goals
             return render(request, "clientsearch.html", {"client_info":client_info, "client_goal":client_goal})
     return render(request, "clientsearch.html")
 
-    
+def goal_status(request, id):
+    print(id)
+    if request.method == "POST":
+        goal_choice = bool(request.POST['goals'])
+        goal_status = Goals.objects.get(id=id)
+        goal_status.goals = goal_choice #access Boolean and make it not what it already is. Flips it to oppostie
+        goal_status.save()
+        return render(request, "clientsearch.html")
+    if (request.POST['goals'] == 'True'):
+        # goal_status.goals = True
+        goal_choice= Goals.objects.filter(dateCreated=goal_choice).delete()
+    else:
+        goal_status.goals = False
+        goal_status.save()
+        return redirect('clientsearch.html')
+    return render(request, "clientsearch.html")

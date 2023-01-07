@@ -8,9 +8,27 @@
 <br>
 
 {% endfor %}
-{% for x in client_goal %} <!-- Loop through goals to display  -->
-<p> Goal: {{x.goalNotes}} </p>
-<p> Deadline: {{x.goalEndDate}} </p>
-<br><br>
+{% for x in client_goal %}
+<form action="{% url 'goalstatus' x.id %}" method="POST">
+    {% csrf_token %}
+     <!-- Loop through goals to display  -->
+    <p> Goal: {{x.goalNotes}} </p>
+    <p> Deadline: {{x.goalEndDate}} </p>
+        Update Status: {{x.goals}}
+        <br>
+        <select name="goals">
+            <br>
+            <option value="False">Incomplete</option>
+            <option value="True">Complete</option>
+        </select>
+        <br>
+    <input type="submit" value="Update"/><br><br>
+    <br>
+</form>
 {% endfor %}
+{% if goals is True %}
+This appears to be True
+{% endif %}
+<br><br>
+<br><br>
 {% endblock %}

@@ -14,6 +14,7 @@ class Goals(models.Model):
     dateCreated = models.DateField(null=True)
     goalEndDate = models.DateField(null=True)
     goalNotes = models.TextField(max_length=500)
+    goals = models.BooleanField(default = False)
 
     def __str__(self):
-        return f"{self.selectClient}, {self.dateCreated}"
+        return f"{self.selectClient}, {self.dateCreated}, {self.goals}"
