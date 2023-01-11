@@ -46,7 +46,8 @@ def client_search(request):
         if query_name:
             client_info = Client.objects.filter(firstName__contains=query_name)
             current_client = Client.objects.get(firstName=query_name)
-            client_goal = Goals.objects.filter(selectClient=current_client) #list of all goals
+            client_goal = Goals.objects.filter(selectClient=current_client).filter(goals=False) #list of all goals
+            print(client_goal)
             return render(request, "clientsearch.html", {"client_info":client_info, "client_goal":client_goal})
     return render(request, "clientsearch.html")
 

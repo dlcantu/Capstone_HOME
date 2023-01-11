@@ -1,10 +1,14 @@
-{% extends 'base.html' %} {% block content %}
-<h1>List of Clients</h1>
-<p>Current clients in system:</p><br>
+{% extends 'base.html' %} {% block content %} {% load static %}
+
 {% for post in clients %}
-<p> First name: {{post.firstName}} </p>
-<p> Last name: {{post.lastName}}</p>
-<p> Date of Birth: {{post.dateOfBirth}}</p>
-<p> Client Notes: {{post.clientNotes}}</p><br><br>
+
+<ul class="container">
+    <li class="flex-item">
+        First name: {{post.firstName}}<br>
+        Last name: {{post.lastName}}<br>
+        Date of Birth: {{post.dateOfBirth}}<br>
+        Client Notes: {{post.clientNotes}}<br>
+    </li>
+</ul>
 {% endfor %}
 {% endblock %}

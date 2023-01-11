@@ -1,20 +1,23 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
-<h1>Client Search</h1>
 
 {% for client in client_info %}
+<ul class="container">
 <p> Current case notes and goals for {{client.firstName}} {{client.lastName}}: </p>
 <br>
-<p> Notes: {{client.clientNotes}}</p>
+<li class="flex-item">Notes: {{client.clientNotes}}</li>
 <br>
+</ul>
 
 {% endfor %}
 {% for x in client_goal %}
+<ul class="container">
 <form action="{% url 'goalstatus' x.id %}" method="POST">
     {% csrf_token %}
      <!-- Loop through goals to display  -->
-    <p> Goal: {{x.goalNotes}} </p>
-    <p> Deadline: {{x.goalEndDate}} </p>
-        Update Status: {{x.goals}}
+    <li class="flex-item">
+        Goal: {{x.goalNotes}}<br>
+        Deadline: {{x.goalEndDate}}<br>
+        Update Status: {{x.goals}}<br>
         <br>
         <select name="goals">
             <br>
@@ -24,7 +27,9 @@
         <br>
     <input type="submit" value="Update"/><br><br>
     <br>
+    </li>
 </form>
+</ul>
 {% endfor %}
 {% if goals is True %}
 This appears to be True

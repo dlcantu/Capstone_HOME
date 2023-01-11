@@ -1,24 +1,26 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
-<h1>Goals and Deadlines</h1>
-Select a client from the list to add a goal for their case: 
+
+
 <form action="{% url 'deadlines' %}" method="POST">
 {% csrf_token %}
-  <label for="selectClient">Select a client:</label>
-    <select id="selectClient" name="clients">
+  <div class="container">
+    <label for="selectClient">Select a client from the list to add a goal for their case:</label>
+      <select id="selectClient" name="clients">
       {% for client in clients %}
       <option value="{{client.id}}">{{ client.firstName }}</option>
       {% endfor %}
-    </select><br>
+      </select><br>
     
-  <label for="dateCreated" class="form-label">Enter today's date:</label>
-  <input type="date" name="createddate" id="dateCreated" /><br />
+    <label for="dateCreated" class="form-label">Enter today's date:</label>
+    <input type="date" name="createddate" id="dateCreated" /><br />
 
-  <label for="goalEndDate" class="form-label">Enter date to complete by:</label>
-  <input type="date" name="endofgoal" id="goalEndDate" /><br />
+    <label for="goalEndDate" class="form-label">Enter date to complete by:</label>
+    <input type="date" name="endofgoal" id="goalEndDate" /><br />
 
-  <label for="goalNotes" class="form-label">Enter summary of goal:</label><br>
-  <textarea name="goalnotes" id="goalNotes" cols="30" rows="10"></textarea><br />
+    <label for="goalNotes" class="form-label">Enter summary of goal:</label><br>
+    <textarea name="goalnotes" id="goalNotes" cols="30" rows="10"></textarea><br />
   
-  <button type="submit">Enter Goal</button>
+    <button type="submit">Enter Goal</button>
+  </div>
 </form>
 {% endblock %}
