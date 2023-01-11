@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css"/>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -14,11 +14,19 @@
     />
     <title>Capstone</title>
   </head>
-  <!-- javascript and css goes here -->
+  <style>
+    body {
+      background-image: url("https://www.riseservices.org/wp-content/uploads/2021/03/759c10e441069f463d01544369840dba_XL-768x513.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: auto;
+    }
+  </style>
   <body>
     <nav class="navbar bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand">HOME</a>
+        <a class="navbar-brand">H.O.M.E.</a>
         <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Homepage</a>
         
         <form class="d-flex" role="search" action="{% url 'clientsearch' %}" method="POST">
@@ -27,7 +35,7 @@
             class="form-control me-2"
             type="text"
             name="firstName"
-            placeholder="Search for Client"
+            placeholder="Client Search"
             aria-label="Search"
           />
           <button class="btn btn-outline-success" type="submit">Search</button>
