@@ -6,6 +6,12 @@ h1 {
   text-align: center;
   font-family: 'Gill Sans';
 }
+h3 {
+  color:#f2f2f2;
+  font-family: 'Gill Sans';
+  margin: 20px;
+  margin-top: 20px;
+}
 
 .header2 {
   color: black;
@@ -24,10 +30,27 @@ h1 {
   padding: 20px;
 }
 
+.flex-container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 15px;
+  width: 300px;
+  height:auto;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
+  padding: 15px;
+}
+
+.table {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px 30px 10px 30px;
 }
 
 ul {

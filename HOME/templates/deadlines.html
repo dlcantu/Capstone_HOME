@@ -3,7 +3,7 @@
 
 <form action="{% url 'deadlines' %}" method="POST">
 {% csrf_token %}
-  <div class="container">
+  <div class="flex-container">
     <label for="selectClient">Select a client from the list to add a goal for their case:</label>
       <select id="selectClient" name="clients">
       {% for client in clients %}

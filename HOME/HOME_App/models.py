@@ -17,4 +17,4 @@ class Goals(models.Model):
     goals = models.BooleanField(default = False)
 
     def __str__(self):
-        return f"{self.selectClient}, {self.dateCreated}, {self.goals}"
+        return f"{self.selectClient}, {self.goalEndDate}, {self.goals}"

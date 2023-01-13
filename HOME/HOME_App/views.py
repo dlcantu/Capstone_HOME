@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Client, Goals
 
-def home(request):
-    return render(request, 'home.html')
-
 def login(request):
     return render(request, 'registration/login.html')
 
@@ -29,6 +26,14 @@ def clientlist(request):
     }
     return render(request, 'client.html', context)
 
+def dashboard(request):
+    dashboard_deadlines = Goals.objects.all().order_by('goalEndDate').filter(goals=False)
+    print(dashboard_deadlines)
+    context = {
+        'dashboard_deadlines': dashboard_deadlines
+    }
+    return render(request, 'home.html', context)
+
 def add_newclient(request):
     if request.method=="POST":
         firstName = request.POST['firstname']
@@ -42,10 +47,10 @@ def add_newclient(request):
 
 def client_search(request):
     if request.method == "POST":
-        query_name = request.POST.get('firstName', None)
+        query_name = request.POST.get('lastName', None)
         if query_name:
-            client_info = Client.objects.filter(firstName__contains=query_name)
-            current_client = Client.objects.get(firstName=query_name)
+            client_info = Client.objects.filter(lastName__contains=query_name)
+            current_client = Client.objects.get(lastName=query_name)
             client_goal = Goals.objects.filter(selectClient=current_client).filter(goals=False) #list of all goals
             print(client_goal)
             return render(request, "clientsearch.html", {"client_info":client_info, "client_goal":client_goal})
