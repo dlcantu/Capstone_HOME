@@ -14,9 +14,8 @@
     {% csrf_token %}
      <!-- Loop through goals to display  -->
     <li class="flex-item">
-        Goal: {{x.goalNotes}}<br>
-        Deadline: {{x.goalEndDate}}<br>
-        Update Status: {{x.goals}}<br>
+        Goal: {{x.goalNotes}}<br><br>
+        Deadline: {{x.goalEndDate}}<br><br>
         <br>
         <select name="goals">
             <br>
@@ -30,9 +29,4 @@
 </form>
 </ul>
 {% endfor %}
-{% if goals is True %}
-This appears to be True
-{% endif %}
-<br><br>
-<br><br>
 {% endblock %}

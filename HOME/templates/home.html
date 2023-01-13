@@ -1,15 +1,36 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 
-
 <div class="header2">
-    {% if user.is_authenticated %} 
-      <h2>Hi {{ user.first_name }}! Welcome to the
-      Homeless Outreach Managing Enagement system.</h2> 
-      {% else %}
-      <p>You are not logged in</p>
-      <a href="{% url 'login' %}">Log In</a>
-    {% endif %}
-  
+  {% if user.is_authenticated %}
+  <h2>
+    Hi {{ user.first_name }}! Welcome to the Homeless Outreach Managing
+    Enagement system.
+  </h2>
+  {% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+  {% endif %}
 </div>
-{% endblock %}
 
+<h3>Upcoming deadlines:</h3>
+
+<div class="flex-container">
+  <table class="table table-sm table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Deadline</th>
+        <th scope="col">Last Name</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for post in dashboard_deadlines %}
+      <tr>
+        <th scope="row">{{ post.goalEndDate }}</th>
+        <td>{{ post.selectClient }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
