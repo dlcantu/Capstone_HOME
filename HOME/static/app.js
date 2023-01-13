@@ -4,7 +4,6 @@ function addclient() {
 
 function goalupdate() {
     alert("Goal has been updated!");
-    console.log("Goals have been updated!");
 }
 
 function addgoal() {
