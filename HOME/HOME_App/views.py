@@ -19,7 +19,7 @@ def deadlines(request):
         return render(request, 'deadlines.html', {"clients": clients})
 
 def clientlist(request):
-    clients = Client.objects.all()
+    clients = Client.objects.all().order_by('lastName')
     print(clients)
     context = {
         'clients': clients
@@ -57,7 +57,6 @@ def client_search(request):
     return render(request, "clientsearch.html")
 
 def goal_status(request, id):
-    print(id)
     if request.method == "POST":
         goal_choice = bool(request.POST['goals'])
         goal_status = Goals.objects.get(id=id)
@@ -65,7 +64,6 @@ def goal_status(request, id):
         goal_status.save()
         return render(request, "clientsearch.html")
     if (request.POST['goals'] == 'True'):
-        # goal_status.goals = True
         goal_choice= Goals.objects.filter(dateCreated=goal_choice).delete()
     else:
         goal_status.goals = False
